@@ -1,0 +1,79 @@
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --good: #22c55e;
+  --warn: #f59e0b;
+  --bad: #ef4444;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+header, main, footer { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
+header h1 { margin: 0; font-size: 2.2rem; }
+header h1 span { color: var(--accent); }
+header p { color: var(--muted); margin-top: 8px; }
+
+.inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 760px) { .inputs, .grid { grid-template-columns: 1fr !important; } }
+
+label span { display: block; font-weight: 600; margin-bottom: 6px; }
+textarea, input[type="file"] {
+  width: 100%;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid #334155;
+  border-radius: var(--radius);
+  padding: 12px;
+  font: inherit;
+}
+input[type="file"] { margin-top: 8px; padding: 8px; }
+
+button {
+  margin-top: 16px;
+  background: var(--accent);
+  color: #0f172a;
+  border: 0;
+  border-radius: var(--radius);
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.6; cursor: wait; }
+
+.error { color: var(--bad); }
+
+#results { margin-top: 32px; display: grid; gap: 16px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.card, .score-card { background: var(--panel); border-radius: var(--radius); padding: 20px; }
+.card h2 { margin-top: 0; font-size: 1.1rem; }
+.card h3 { font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+.score-card { text-align: center; }
+.score { font-size: 3.5rem; font-weight: 800; }
+.score[data-level="high"] { color: var(--good); }
+.score[data-level="mid"] { color: var(--warn); }
+.score[data-level="low"] { color: var(--bad); }
+.score-card small { color: var(--muted); }
+
+.chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li { background: #334155; border-radius: 999px; padding: 4px 12px; font-size: 0.9rem; }
+.chips.good li { background: rgba(34, 197, 94, 0.2); color: #86efac; }
+.chips.bad li { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+.chips.warn li { background: rgba(245, 158, 11, 0.2); color: #fcd34d; }
+.chips li.empty { background: transparent; color: var(--muted); }
+
+#suggestions li { margin-bottom: 8px; }
+footer { color: var(--muted); font-size: 0.85rem; text-align: center; }

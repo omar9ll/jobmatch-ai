@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JobMatch AI</title>
+  <meta name="description" content="Score your resume against a job posting and get tailored suggestions.">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header>
+    <h1>JobMatch <span>AI</span></h1>
+    <p>Paste a job posting and your resume to see how well they match, which skills you're missing, and how to tailor it.</p>
+  </header>
+
+  <main>
+    <form id="form">
+      <section class="inputs">
+        <label>
+          <span>Job posting</span>
+          <textarea id="job" rows="14" placeholder="Paste the full job description here..." required></textarea>
+        </label>
+        <label>
+          <span>Your resume</span>
+          <textarea id="resume" rows="14" placeholder="Paste your resume text here, or upload a PDF below..."></textarea>
+          <input id="pdf" type="file" accept="application/pdf">
+        </label>
+      </section>
+      <button id="submit" type="submit">Analyze match</button>
+      <p id="error" class="error" hidden></p>
+    </form>
+
+    <section id="results" hidden>
+      <div class="score-card">
+        <div class="score"><span id="score">0</span>%</div>
+        <p id="summary"></p>
+        <small id="source"></small>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h2>Required skills</h2>
+          <h3>Matched</h3><ul id="req-matched" class="chips good"></ul>
+          <h3>Missing</h3><ul id="req-missing" class="chips bad"></ul>
+        </div>
+        <div class="card">
+          <h2>Nice to have</h2>
+          <h3>Matched</h3><ul id="nice-matched" class="chips good"></ul>
+          <h3>Missing</h3><ul id="nice-missing" class="chips warn"></ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Suggestions</h2>
+        <ol id="suggestions"></ol>
+      </div>
+
+      <div class="card">
+        <h2>Keywords from the posting not in your resume</h2>
+        <ul id="keywords" class="chips"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>Built with FastAPI · Python · Claude API</footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>
