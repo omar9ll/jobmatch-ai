@@ -2,6 +2,9 @@
 
 **Score your resume against any job posting, see exactly which skills you're missing, and get AI-written suggestions to tailor it.**
 
+🌐 **Live demo: [jobmatch-ai-mbu5.onrender.com](https://jobmatch-ai-mbu5.onrender.com/)** (free hosting, so the first load can take up to a minute while it wakes up)
+
+
 Applying to dozens of internships means rewriting your resume for every posting. JobMatch AI does the first pass for you: paste a job description and your resume (or upload a PDF) and it returns a weighted match score, matched and missing skills, keywords to mirror, and concrete edits.
 
 **Example** (a co-op posting vs. a sample resume):
